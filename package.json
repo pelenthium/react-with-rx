@@ -1,6 +1,6 @@
 {
   "name": "react-with-rx",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "HOC (High Ordered Component) to allow pass observable as property to component without manually management subscriptions",
   "author": "pelenthium",
   "license": "MIT",
