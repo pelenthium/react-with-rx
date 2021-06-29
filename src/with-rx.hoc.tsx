@@ -27,7 +27,7 @@ export const withRX = <P extends object>(Target: ComponentType<P>) => <
     const [state, setState] = useState<Partial<P> | undefined>(undefined)
 
     useLayoutEffect(() => {
-      const { defaultProps, props } = selector(subject)
+      const { defaultProps, props, effects$ } = selector(subject)
       setState(defaultProps || {})
       if (props) {
         const inputs: Observable<Partial<P>>[] = Object.keys(props).map((key) =>
@@ -40,8 +40,12 @@ export const withRX = <P extends object>(Target: ComponentType<P>) => <
           .subscribe((values) =>
             setState((prevState) => Object.assign({}, prevState, values))
           )
+        const effectsSubscription = effects$ ? effects$.subscribe() : undefined
         return () => {
           subscription.unsubscribe()
+          if (effectsSubscription) {
+            effectsSubscription.unsubscribe()
+          }
         }
       }
       return undefined
