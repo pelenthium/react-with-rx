@@ -21,9 +21,8 @@ export const withRX = <P extends object>(Target: ComponentType<P>) => <
 >(
   selector: (props: Observable<Readonly<P>>) => WithRXSelectorResult<P, D>
 ) => {
-  const subject = new Subject<P>()
-
   const Hoc = (origin: P) => {
+    const subject = new Subject<P>()
     const [state, setState] = useState<Partial<P> | undefined>(undefined)
 
     useLayoutEffect(() => {
