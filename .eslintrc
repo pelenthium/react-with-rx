@@ -1,12 +1,17 @@
 {
   "parser": "@typescript-eslint/parser",
+  "plugins": [
+    "react",
+    "@typescript-eslint",
+    "prefer-arrow",
+    "import",
+    "prettier"
+  ],
   "extends": [
-    "standard",
-    "standard-react",
-    "plugin:prettier/recommended",
-    "prettier/standard",
-    "prettier/react",
-    "plugin:@typescript-eslint/eslint-recommended"
+    "airbnb",
+    "airbnb/hooks",
+    "plugin:@typescript-eslint/recommended",
+    "prettier"
   ],
   "env": {
     "node": true
@@ -24,11 +29,39 @@
     }
   },
   "rules": {
-    "space-before-function-paren": 0,
-    "react/prop-types": 0,
-    "react/jsx-handler-names": 0,
-    "react/jsx-fragments": 0,
-    "react/no-unused-prop-types": 0,
-    "import/export": 0
+    "no-use-before-define": "off",
+    "@typescript-eslint/no-use-before-define": ["error"],
+    "prettier/prettier": "warn",
+    "@typescript-eslint/interface-name-prefix": "off",
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/ban-ts-ignore": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/camelcase": "off",
+    "@typescript-eslint/no-empty-interface": "off",
+    "@typescript-eslint/no-unused-expressions": "error",
+    "react/prop-types": "off",
+    "react/forbid-prop-types": "off",
+    "import/no-unresolved": "off",
+    "import/extensions": "off",
+    "import/no-named-default": "off",
+    "import/no-extraneous-dependencies": "off",
+    "react/jsx-filename-extension": [1, { extensions: [".ts", ".tsx"] }],
+    "react/display-name": "off",
+    "react/static-property-placement": "off",
+    "import/prefer-default-export": "off",
+    "dot-notation": "off",
+    "no-param-reassign": "off",
+    "no-shadow": "off",
+    "react/destructuring-assignment": [
+      2,
+      "always",
+      { ignoreClassFields: true }
+    ],
+    "jsx-a11y/label-has-associated-control": "off",
+    "react/jsx-props-no-spreading": "off",
+    "no-unused-expressions": "off",
+    "no-nested-ternary": "off",
+    "prefer-object-spread": "off",
+    "react/require-default-props": "off"
   }
 }
